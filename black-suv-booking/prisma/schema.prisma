@@ -1,0 +1,39 @@
+// Prisma schema for the Black SUV booking service.
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Booking {
+  id              Int      @id @default(autoincrement())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  mode            String
+  name            String
+  phone           String
+  email           String?
+  preferredContact String?
+  pickupAddress   String
+  dropoffAddress  String?
+  datetime        DateTime
+  passengers      Int
+  addons          Json?
+  packageName     String?
+  hoursRequested  Int?
+  distanceMiles   Float?
+  durationMinutes Float?
+  price           Float
+  currency        String?  @default("USD")
+  status          String   @default("NEW")
+}
+
+model Setting {
+  id    Int    @id @default(autoincrement())
+  key   String @unique
+  value Json
+}

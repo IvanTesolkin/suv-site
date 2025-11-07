@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Global styles for the booking application. The body uses a dark
+  background with light foreground text. Additional global styles can
+  be added here if needed.
+*/
+body {
+  @apply bg-background text-foreground;
+  font-family: sans-serif;
+}
